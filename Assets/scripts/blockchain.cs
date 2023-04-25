@@ -7,9 +7,8 @@ public class Blockchain : MonoBehaviour
 {
     // chain is made of blocks
     Block[] chain = null;
-    // dificulty, we might want this to be field in block
-    int dificulty = 0;
-    int rewart; // rewart to be avarded to miner;
+    int dificulty = 0; //  we might want this to be field in block
+    int reward; // rewart to be avarded to miner;
 
     
 
