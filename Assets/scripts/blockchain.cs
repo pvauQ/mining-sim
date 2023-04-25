@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using Block;
 
-public class blockchain : MonoBehaviour
+public class Blockchain : MonoBehaviour
 {
     // chain is made of blocks
     Block[] chain = null;
