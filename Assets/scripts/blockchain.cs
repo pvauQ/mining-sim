@@ -12,7 +12,7 @@ public class Blockchain : MonoBehaviour
 
     
 
-    void getTop(){
+    public void getTop(){
         // return a block on top of the chain
     }
 
