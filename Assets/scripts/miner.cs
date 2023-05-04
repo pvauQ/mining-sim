@@ -6,13 +6,15 @@ public class Miner : MonoBehaviour
 {
     public BlockBeingMined toBeBlock;
     //public int nonce;
-    Blockchain chain;  // ref to chain
-    Node minerEntity; // or do we want to inherit node?
+    public Blockchain chain;  // ref to chain
+    public Node minerEntity; // or do we want to inherit node?
 
 
-    public Miner(Blockchain chain){
+    public Miner(Blockchain chain, Node minerEntity){ //  mines only one block! after that dump it.
         chain = chain;
-        toBeBlock = new BlockBeingMined();
+        minerEntity = minerEntity;
+        toBeBlock = new BlockBeingMined(minerEntity, chain);
+        
     }
 
     public bool AddTrans(Transaction trans){
@@ -23,17 +25,31 @@ public class Miner : MonoBehaviour
 
     public void Mine(int nonce){
         Block prev = chain.getTop();
+
         string merkle = toBeBlock.GetHash();
-/*
-        string str  = nonce + merkle + prev.hash???
+        string str  = nonce + merkle + prev.hashThisBlock;
+        ulong hash = Hasher.DoHashMd5Long(str);
 
-        uLong hash = Hasher.DoHashMd5Long(str)
-
-        if (hash > chain.difficulty){
+        if (hash < chain.difficulty){
             // kokoamme lohkon 
+            Block mined = new Block(
+                prev.hashThisBlock,
+                merkle ,
+                Time.frameCount, //frame number from unity engine
+                chain.difficulty,
+                nonce,
+                hash,
+                toBeBlock.transToInlclude);
             // lisäämme sen ketjuun
+            chain.Add(mined);
             //  saamme palkinnon --->
-        */
+            reward(mined);
         }
+    }
+    private void  reward(Block mined){
+        //TODO READ  the TRANSACTIONS!!
+        minerEntity.receiveFunds(chain.reward);
+    }
+
 
 }

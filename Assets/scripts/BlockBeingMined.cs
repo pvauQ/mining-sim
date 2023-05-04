@@ -10,12 +10,11 @@ public class BlockBeingMined : MonoBehaviour
     public string hashMerkleRoot; 
     bool change = false;
 
-    public BlockBeingMined(){
+    public BlockBeingMined(Node node ,Blockchain chain){
          transToInlclude =  new List<Transaction>();
-         //TODO
          // ensimmäinen on aina rewardi!!
-         // otetaan node parametrinä?
-         //transToInlclude.add() Transactio olio jossa palkinto minerille.
+         Transaction reward = new Transaction(chain.reward, node.address , 0); // rewadin summa chainistä, osoite nodesta, ja syntyi tyhjästä(0)
+         transToInlclude.Add(reward);
     }
 
     public bool AddTrans(Transaction trans){

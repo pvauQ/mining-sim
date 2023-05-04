@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    int blockSize; // no need?
-    long hashPrevBlock;
-    long hashMerkleRoot; // is long long enough?
-    int timestamp;
-    int difficulty;
-    int Nonce;
-    List<Transaction> transctions = new List<Transaction>();
+    //int blockSize; // no need?
+    public ulong hashPrevBlock;
+    public string hashMerkleRoot; // is long long enough?
+    public int timestamp;
+    public ulong difficulty;
+    public int nonce;
+    public ulong hashThisBlock;
+    public List<Transaction> transactions;
+    
 
 
-    public Block(){
+    public Block( ulong hashPrevBlock, string merkle, int timestamp,
+                ulong difficulty, int nonce, ulong hashThisBlock,List<Transaction> trans){
+        hashPrevBlock = hashPrevBlock;
+        hashMerkleRoot = merkle;
+        timestamp = timestamp;
+        difficulty = difficulty;
+        nonce = nonce;
+        hashThisBlock = hashThisBlock;
+        transactions = transactions;
 
     }
     
