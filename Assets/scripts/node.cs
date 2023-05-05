@@ -8,8 +8,8 @@ public class Node : MonoBehaviour
     public int address;
 
     public Node(int address){
-    funds = 0;
-    address = address;
+    this.funds = 0;
+    this.address = address;
     }
 
     public int receiveFunds(int amount ){

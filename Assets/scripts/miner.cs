@@ -11,21 +11,19 @@ public class Miner : MonoBehaviour
 
 
     public Miner(Blockchain chain, Node minerEntity){ //  mines only one block! after that dump it.
-        chain = chain;
-        minerEntity = minerEntity;
-        toBeBlock = new BlockBeingMined(minerEntity, chain);
-        
+        this.chain = chain;
+        this.minerEntity = minerEntity;
+        this.toBeBlock = new BlockBeingMined(minerEntity, chain);      
     }
 
-    public bool AddTrans(Transaction trans){
+    public bool AddTrans(Transaction trans){ // call to add trans to block u are mining
         // is this stupid?
         toBeBlock.AddTrans(trans);
         return true;
     }
 
-    public void Mine(int nonce){
+    public void Mine(int nonce){ // does mining, if finds block add it to chain, and "sends reward to miner
         Block prev = chain.getTop();
-
         string merkle = toBeBlock.GetHash();
         string str  = nonce + merkle + prev.hashThisBlock;
         ulong hash = Hasher.DoHashMd5Long(str);
@@ -47,7 +45,7 @@ public class Miner : MonoBehaviour
         }
     }
     private void  reward(Block mined){
-        //TODO READ  the TRANSACTIONS!!
+        //TODO READ  the TRANSACTIONS for real!!
         minerEntity.receiveFunds(chain.reward);
     }
 

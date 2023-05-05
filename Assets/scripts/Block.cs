@@ -17,13 +17,13 @@ public class Block : MonoBehaviour
 
     public Block( ulong hashPrevBlock, string merkle, int timestamp,
                 ulong difficulty, int nonce, ulong hashThisBlock,List<Transaction> trans){
-        hashPrevBlock = hashPrevBlock;
-        hashMerkleRoot = merkle;
-        timestamp = timestamp;
-        difficulty = difficulty;
-        nonce = nonce;
-        hashThisBlock = hashThisBlock;
-        transactions = transactions;
+        this.hashPrevBlock = hashPrevBlock;
+        this.hashMerkleRoot = merkle;
+        this.timestamp = timestamp;
+        this.difficulty = difficulty;
+        this.nonce = nonce;
+        this.hashThisBlock = hashThisBlock;
+        this.transactions = trans;
 
     }
     

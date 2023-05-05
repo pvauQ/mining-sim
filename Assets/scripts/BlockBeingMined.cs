@@ -11,7 +11,7 @@ public class BlockBeingMined : MonoBehaviour
     bool change = false;
 
     public BlockBeingMined(Node node ,Blockchain chain){
-         transToInlclude =  new List<Transaction>();
+         this.transToInlclude =  new List<Transaction>();
          // ensimmäinen on aina rewardi!!
          Transaction reward = new Transaction(chain.reward, node.address , 0); // rewadin summa chainistä, osoite nodesta, ja syntyi tyhjästä(0)
          transToInlclude.Add(reward);

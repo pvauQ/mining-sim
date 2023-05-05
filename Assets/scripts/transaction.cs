@@ -12,10 +12,10 @@ public class Transaction : MonoBehaviour
 
 	public Transaction(int fee, int out_address, int in_address){
 		System.Random rnd = new System.Random();
-		id = rnd.Next();// eheh
-		fee = fee;
-		in_address = in_address;
-		out_address = out_address;
+		this.id = rnd.Next();// eheh
+		this.fee = fee;
+		this.in_address = in_address;
+		this.out_address = out_address;
 	}
 
 	public override string ToString(){ // to be used for merkleroot

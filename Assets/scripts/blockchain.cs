@@ -11,8 +11,8 @@ public class Blockchain : MonoBehaviour
     public int reward; // reward to be avarded to miner;
 
     public Blockchain(){
-        blocks = new List<Block>();
-        reward = 50;
+        this.blocks = new List<Block>();
+        this.reward = 50;
         // genesis block
         //transaction for genesis
         List <Transaction> asd = new List<Transaction>();

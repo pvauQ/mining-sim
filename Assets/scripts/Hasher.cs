@@ -11,7 +11,7 @@ public static class Hasher{
     // static class that can do hashes
 
 	public static string DoHashMD5(string str){
-    // returns string atm, should it return hash as a number instead?
+    // returns  full MD5 as a string
         byte[] tmpSource = ASCIIEncoding.ASCII.GetBytes(str);
         byte[] tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
 
