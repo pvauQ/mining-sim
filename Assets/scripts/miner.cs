@@ -7,13 +7,16 @@ public class Miner : MonoBehaviour
     public BlockBeingMined toBeBlock;
     //public int nonce;
     public Blockchain chain;  // ref to chain
-    public Node minerEntity; // or do we want to inherit node?
+    public Node minerEntity; 
+    Block refBlock; // we use this to determine if new block was mined.
+    Pool pool;
 
-
-    public Miner(Blockchain chain, Node minerEntity){ //  mines only one block! after that dump it.
+    public Miner(Blockchain chain, Node minerEntity, Pool pool){ //  mines only one block! after that dump it.
+        this.pool = pool;
         this.chain = chain;
         this.minerEntity = minerEntity;
-        this.toBeBlock = new BlockBeingMined(minerEntity, chain);      
+        this.toBeBlock = new BlockBeingMined(minerEntity, chain);
+        this.refBlock = chain.getTop();
     }
 
     public bool AddTrans(Transaction trans){ // call to add trans to block u are mining
@@ -22,8 +25,14 @@ public class Miner : MonoBehaviour
         return true;
     }
 
-    public void Mine(int nonce){ // does mining, if finds block add it to chain, and "sends reward to miner
+    // does mining, if finds block add it to chain, and "sends reward to miner
+    // if  new block in chain after miner was instantiated return false, in that case DUMP this miner
+    // 
+    public bool Mine(int nonce){ // does mining, if finds block add it to chain, and "sends reward to miner
         Block prev = chain.getTop();
+        if (prev != refBlock){
+            return false;
+        }
         string merkle = toBeBlock.GetHash();
         string str  = nonce + merkle + prev.hashThisBlock;
         ulong hash = Hasher.DoHashMd5Long(str);
@@ -40,9 +49,13 @@ public class Miner : MonoBehaviour
                 toBeBlock.transToInlclude);
             // lisäämme sen ketjuun
             chain.Add(mined);
+            // poistamme sisälletyt transactiot poolista-->
+            pool.removeListOfTransFromPool(toBeBlock.transToInlclude);
+
             //  saamme palkinnon --->
             reward(mined);
         }
+        return true;
     }
     private void  reward(Block mined){
         //TODO READ  the TRANSACTIONS for real!!
