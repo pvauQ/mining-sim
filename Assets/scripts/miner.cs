@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Miner : MonoBehaviour
 {
     public BlockBeingMined toBeBlock;
@@ -26,12 +26,13 @@ public class Miner : MonoBehaviour
     }
 
     // does mining, if finds block add it to chain, and "sends reward to miner
-    // if  new block in chain after miner was instantiated return false, in that case DUMP this miner
-    // 
-    public bool Mine(int nonce){ // does mining, if finds block add it to chain, and "sends reward to miner
+    // return array of 2 ulongs, first is a hash, and second is 1 if block was mined and 0 if no block is mined
+    // throws Execption if block if we are mining old block.
+    public ulong[] Mine(int nonce){ // does mining, if finds block add it to chain, and "sends reward to miner
         Block prev = chain.getTop();
+        ulong[] ret;
         if (prev != refBlock){
-            return false;
+            throw new Exception("new block in chain! dump me");
         }
         string merkle = toBeBlock.GetHash();
         string str  = nonce + merkle + prev.hashThisBlock;
@@ -54,8 +55,11 @@ public class Miner : MonoBehaviour
 
             //  saamme palkinnon --->
             reward(mined);
+            ret =  new ulong[]{hash,1};
+            return ret;
         }
-        return true;
+        ret =  new ulong[]{hash,0};
+        return ret;
     }
     private void  reward(Block mined){
         //TODO READ  the TRANSACTIONS for real!!
