@@ -30,8 +30,8 @@ public class BlockBeingMined : MonoBehaviour
             return hashMerkleRoot; // if  no change no need to do hash
         }
         string str = "";
-        foreach(Transaction trans in  transToInlclude){
-            str = str + trans.ToString();
+        foreach(Transaction trans in  transToInlclude){ 
+            str = str + trans.ToString(); // Fix. Only last transaction will be present this way because its a foreach loop
         }
         hashMerkleRoot = Hasher.DoHashMD5(str);
         change = false;
