@@ -63,9 +63,16 @@ public class Miner : MonoBehaviour
         ret =  new ulong[]{hash,0};
         return ret;
     }
-    private void  reward(Block mined){
-        //TODO READ  the TRANSACTIONS for real!!
-        minerEntity.receiveFunds(chain.reward);
+    // sums the fees of all trans in this block, calls method from provided miner to receive the fees.
+    // return rewarded amount
+    private int reward(Block mined){
+        //  transactions in block, first is reward and later ones have a fee.
+        int reward = 0;
+        foreach (Transaction trans in mined.transactions){
+            reward = reward+trans.fee;
+        }
+        minerEntity.receiveFunds(reward);
+        return reward;
     }
 
 
