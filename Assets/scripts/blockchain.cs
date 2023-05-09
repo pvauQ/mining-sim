@@ -34,6 +34,7 @@ public class Blockchain : MonoBehaviour
         // we prob want multiply dif by x
         difficulty = diff;
     }
+    
     public bool Add(Block block){
         blocks.Add(block);
         return true;
@@ -47,7 +48,7 @@ public class Blockchain : MonoBehaviour
         List <Transaction> asd = new List<Transaction>();
         asd.Add(new Transaction(50,0,1));
     
-        blocks.Add(new Block(0, "11", 1, 0, 0, 11,  asd)); // TODO  valid block!!
+        blocks.Add(new Block(0, "11", 1, 777, 0, 11,  asd)); // TODO  valid block!!
         setDifficulty(18_446_744_073_709_551_615/2);
     }
 
