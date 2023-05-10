@@ -6,7 +6,7 @@ using UnityEngine;
     This is used to create random hashes
 */
 
-public class NMBlock
+public class NMBlock :ScriptableObject
 {
     //int blockSize; // no need?
     public ulong hashPrevBlock;

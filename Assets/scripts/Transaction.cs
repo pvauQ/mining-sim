@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Transaction : MonoBehaviour
+public class Transaction
 {
 	public int fee;
 	int out_address;

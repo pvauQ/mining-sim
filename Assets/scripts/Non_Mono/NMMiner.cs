@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class NMMiner
+public class NMMiner :ScriptableObject
 {
     public NMBlockBeingMined toBeBlock;
     //public int nonce;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NMPool// we need mono here,why :D
+public class NMPool :ScriptableObject
 {
 	 List<Transaction> transactionsInPool ;
 

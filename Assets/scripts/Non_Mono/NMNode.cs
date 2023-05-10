@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NMNode
+public class NMNode :ScriptableObject
 {
     public int funds;
     public int address;

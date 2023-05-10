@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 
-public class NMBlockBeingMined
+public class NMBlockBeingMined :ScriptableObject
 {
 
     public List<Transaction> transToInlclude ;

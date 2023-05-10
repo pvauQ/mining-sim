@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using NMBlock;
 
-public class NMBlockChain
+public class NMBlockChain : ScriptableObject
 {
     // chain is made of blocks
     public List<NMBlock> blocks ;
@@ -13,8 +13,7 @@ public class NMBlockChain
     public GameObject blockInChainPrefab;
     public Transform blockLocation;
 
-    public NMBlockChain
-(){
+    public NMBlockChain(){
         this.blocks = new List<NMBlock>();
         this.reward = 50;
         // genesis block
