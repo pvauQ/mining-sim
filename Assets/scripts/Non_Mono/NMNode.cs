@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NMNode :ScriptableObject
+[System.Serializable]
+public class NMNode
 {
     public int funds;
     public int address;

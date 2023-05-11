@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NMPool :ScriptableObject
+[System.Serializable]
+public class NMPool
 {
 	 List<Transaction> transactionsInPool ;
 
