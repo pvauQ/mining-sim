@@ -9,7 +9,7 @@ public class NMNode
     public int address;
 
     public NMNode(int address){
-    this.funds = 0;
+    this.funds = 20;
     this.address = address;
     }
 

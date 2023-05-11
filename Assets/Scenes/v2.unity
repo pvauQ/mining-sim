@@ -508,11 +508,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415819505}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1248ee53a78a7b145864b06930d5d2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main_handler: {fileID: 788469623}
   textToDisplay: {fileID: 493536934}
   difficultyText: {fileID: 212775799}
   nonceText: {fileID: 1864565725}
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   miner:
     toBeBlock:
       hashMerkleRoot: 
+    nonce: 0
     chain:
       difficulty: 9223372036854775807
       reward: 50
@@ -1038,6 +1040,7 @@ MonoBehaviour:
     minerEntity:
       funds: 0
       address: 0
+  prev_hash_miner: 0
 --- !u!1 &843197164
 GameObject:
   m_ObjectHideFlags: 0

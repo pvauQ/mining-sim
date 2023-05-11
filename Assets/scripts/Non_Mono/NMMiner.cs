@@ -7,7 +7,7 @@ using System;
 public class NMMiner
 {
     public NMBlockBeingMined toBeBlock;
-    //public int nonce;
+    public int nonce;
     public NMBlockChain chain;  // ref to chain
     public NMNode minerEntity; 
     NMBlock refBlock; // we use this to determine if new block was mined.
@@ -16,6 +16,7 @@ public class NMMiner
 
     public NMMiner(NMBlockChain chain, NMNode minerEntity, NMPool pool){ //  mines only one block! after that dump it.
         this.pool = pool;
+        this.nonce = 0;
         this.chain = chain;
         this.minerEntity = minerEntity;
         this.toBeBlock = new NMBlockBeingMined(minerEntity, chain);
@@ -31,7 +32,7 @@ public class NMMiner
     // does mining, if finds block add it to chain, and "sends reward to miner
     // return array of 2 ulongs, first is a hash, and second is 1 if block was mined and 0 if no block is mined
     // throws Execption if block if we are mining old block.
-    public ulong[] Mine(int nonce){ // does mining, if finds block add it to chain, and "sends reward to miner
+    public ulong[] Mine(){ // does mining, if finds block add it to chain, and "sends reward to miner
         NMBlock prev = chain.getTop();
         ulong[] ret;
         if (prev != refBlock){
@@ -62,6 +63,7 @@ public class NMMiner
             return ret;
         }
         ret =  new ulong[]{hash,0};
+        this.nonce +=1;
         return ret;
     }
     // sums the fees of all trans in this block, calls method from provided miner to receive the fees.

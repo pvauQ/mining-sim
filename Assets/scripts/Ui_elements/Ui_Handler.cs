@@ -7,19 +7,17 @@ using UnityEngine.Events;
 // globaalit muuttujat ja viitteet
 public class Ui_Handler : MonoBehaviour 
 {
-    // eventti jotka passataan mainerille´
    
-    //public UnityEvent mine_click; 
-    //public UnityEvent<int> trans_click;
-
     // tarvitaan mineria varten:
     public NMBlockChain chain;
     public NMNode playerNode; // players wallet
     public NMPool pool; //transactions are here before mining
     public NMMiner miner ; //  mineri instanssi.
 
+    bool dump_miner;
 
-    // Start is called before the first frame update
+    public ulong prev_hash_miner; // this is stupid. its here cause we want to have it after miner is dumped
+
     void Start()
     {
         this.chain = new NMBlockChain();
@@ -27,30 +25,37 @@ public class Ui_Handler : MonoBehaviour
         this.pool = new NMPool();
         // ^^ nämä pysyy samana koko pelin ajan.
 
-        miner = new NMMiner(chain,playerNode,pool);
-        // ^^ näitä luodaan uusia tarvittaessa.
+        this.dump_miner = true; // true here, this causes creation of intial miner
         
-        /*
-        // luodaan kuuntelijoiden viittaukset
-        if (mine_click == null)
-            mine_click = new UnityEvent();
-        mine_click.AddListener(OnMinerClick);
-        if (trans_click == null)
-            trans_click = new UnityEvent<int>();
-        trans_click.AddListener(OnTransClick);
-        */
+        
     }
-
-    // Update is called once per frame
     void Update()
     {
         //print(chain.getTop().hashThisBlock);
     }
 
+
+    //   methods that we can call from elements in ui
     public void OnMinerClick(){
-        Debug.Log("klikattiin mainaus nappia");
-        // mainaa bro
-        // voidaan käyttää mineria ja kun se on valmis voidaan se dumpata
+        ulong[] mine_ret;
+
+        if (this.dump_miner){
+            miner = new NMMiner(chain,playerNode,pool);
+            dump_miner = false;
+        }
+        try{
+            mine_ret = miner.Mine();
+            this.prev_hash_miner= mine_ret[0];
+            if (mine_ret[1]== 1){ 
+                //Debug.Log("block was found!");
+                dump_miner = true;
+            }
+        }catch (System.Exception){
+            this.dump_miner = true;
+            //Debug.Log("Trying to mine old block");
+        }
+
+
     }
 
     public void OnTransClick(int id){
