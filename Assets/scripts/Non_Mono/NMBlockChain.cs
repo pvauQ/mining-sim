@@ -39,6 +39,7 @@ public class NMBlockChain
     
     public bool Add(NMBlock block){
         blocks.Add(block);
+        Debug.Log("lisätiiin lohko"+ this.blocks.Count);
         return true;
     }
 
