@@ -9,8 +9,8 @@ public class Ui_Handler : MonoBehaviour
 {
     // eventti jotka passataan mainerille´
    
-    public UnityEvent mine_click; 
-    public UnityEvent<int> trans_click;
+    //public UnityEvent mine_click; 
+    //public UnityEvent<int> trans_click;
 
     // tarvitaan mineria varten:
     public NMBlockChain chain;
@@ -30,6 +30,7 @@ public class Ui_Handler : MonoBehaviour
         miner = new NMMiner(chain,playerNode,pool);
         // ^^ näitä luodaan uusia tarvittaessa.
         
+        /*
         // luodaan kuuntelijoiden viittaukset
         if (mine_click == null)
             mine_click = new UnityEvent();
@@ -37,6 +38,7 @@ public class Ui_Handler : MonoBehaviour
         if (trans_click == null)
             trans_click = new UnityEvent<int>();
         trans_click.AddListener(OnTransClick);
+        */
     }
 
     // Update is called once per frame
