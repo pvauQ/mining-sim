@@ -7,7 +7,10 @@ using UnityEngine.Events;
 // globaalit muuttujat ja viitteet
 public class Ui_Handler : MonoBehaviour 
 {
-   
+   // viiteitää muualle.
+   public GameObject ui_pool;
+
+
     // tarvitaan mineria varten:
     public NMBlockChain chain;
     public NMNode playerNode; // players wallet
@@ -25,14 +28,12 @@ public class Ui_Handler : MonoBehaviour
         this.pool = new NMPool();
         // ^^ nämä pysyy samana koko pelin ajan.
 
-        this.dump_miner = true; // true here, this causes creation of intial miner
+        this.dump_miner = false;
+        miner = new NMMiner(chain,playerNode,pool); //  we do miner here, so we have ref before first click.
         
         
     }
-    void Update()
-    {
-        //print(chain.getTop().hashThisBlock);
-    }
+
 
 
     //   methods that we can call from elements in ui
@@ -49,18 +50,15 @@ public class Ui_Handler : MonoBehaviour
             if (mine_ret[1]== 1){ 
                 //Debug.Log("block was found!");
                 dump_miner = true;
+                ui_pool.GetComponent<Ui_Pool>().fieldClear();
             }
         }catch (System.Exception){
             this.dump_miner = true;
+            ui_pool.GetComponent<Ui_Pool>().fieldClear();
             //Debug.Log("Trying to mine old block");
         }
 
 
     }
 
-    public void OnTransClick(int id){
-        Debug.Log(" klikattiin trasaktiota: "+ id);
-        Transaction trans = pool.getTransaction(id);
-        miner.toBeBlock.AddTrans(trans);
-    }
 }

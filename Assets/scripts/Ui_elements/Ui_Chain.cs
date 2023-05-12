@@ -11,9 +11,7 @@ public class Ui_Chain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Instantiate(Ui_block_prefab, transform.position, transform.rotation, transform);
-        Debug.Log("koira");
         this.prev_len  =main_handler.GetComponent<Ui_Handler>().chain.blocks.Count;
     }
 

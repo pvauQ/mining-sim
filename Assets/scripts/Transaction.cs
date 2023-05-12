@@ -8,7 +8,7 @@ public class Transaction
 	public int fee;
 	int out_address;
 	int in_address;
-	int id; // for game purposes not a real thing
+	public int id; // for game purposes not a real thing
 
 	public Transaction(int fee, int out_address, int in_address){
 		System.Random rnd = new System.Random();
