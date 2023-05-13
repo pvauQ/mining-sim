@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // this is going to be script on every transaction that is visible,
-// on click we want to do event trans_click with the id
+// on click we want to  add to blockbeingMined
 public class Ui_Transaction : MonoBehaviour
 {
     public int id;
@@ -24,8 +24,10 @@ public class Ui_Transaction : MonoBehaviour
         Transaction trans = main_handler.GetComponent<Ui_Handler>().pool.getTransaction(this.id);
         //Debug.Log(trans.ToString());
         // lisätään to be blockkiin tämän ideetä vastaava transactio
-        main_handler.GetComponent<Ui_Handler>().miner.toBeBlock.AddTrans( trans);
-        Destroy(gameObject);
-        
+        if (main_handler.GetComponent<Ui_Handler>().miner.getBlockBeingMined() != null){
+            main_handler.GetComponent<Ui_Handler>().miner.getBlockBeingMined().AddTrans( trans);
+            Destroy(gameObject);
+        }
+            
     }
 }
