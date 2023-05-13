@@ -23,6 +23,8 @@ public class Ui_Handler : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         this.chain = new NMBlockChain();
         this.playerNode = new NMNode(1); // osoite 1
         this.pool = new NMPool();

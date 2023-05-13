@@ -53,7 +53,7 @@ public class NMMiner
             NMBlock mined = new NMBlock(
                 prev.hashThisBlock,
                 merkle ,
-                Time.frameCount, //frame number from unity engine
+                Time.frameCount, //might not work in this context
                 chain.difficulty,
                 nonce,
                 hash,

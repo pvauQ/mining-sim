@@ -12,7 +12,6 @@ public class NMBlockChain
     public ulong difficulty = 0; //  	0 to 18,446,744,073,709,551,615
     public int reward; // reward to be avarded to miner;
 
-
     public NMBlockChain(){
         this.blocks = new List<NMBlock>();
         this.reward = 50;

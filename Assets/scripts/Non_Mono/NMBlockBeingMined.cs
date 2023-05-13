@@ -26,7 +26,14 @@ public class NMBlockBeingMined
         change = true;
         GetHash();
         return true;
+    }
+    public bool AddListOfTrans(List<Transaction> trans){
+        this.transToInlclude.AddRange(trans);
+        change = true;
+        GetHash();
+        return true;
     } 
+
 
 
     public string GetHash(){
