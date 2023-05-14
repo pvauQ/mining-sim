@@ -8,29 +8,38 @@ public class Mining_agent : MonoBehaviour
     public GameObject main_handler;
     // get all these at Start() from main_handler
     NMBlockChain chain;
-    NMNode agentNode; //agents wallet // if we have this as player node this could work as cpu/mining pool member??
+    public NMNode agentNode; //agents wallet // if we have this as player node this could work as cpu/mining pool member??
     NMPool pool; 
     NMMiner miner;
     GameObject ui_pool;
-    public int  frames_between_hashes= 360;
+    public int  frames_between_hashes= 120;
     int id;
 
-    bool blockFoundLast = true; // to init
-    // Start is called before the first frame update
+    // sörkitään nätä skriptissä joka luo  yksittäisen minerin.
+    public bool InPLayersPool = false;
+    public string type;
+    public string desc;
+
+    bool blockFoundLast = true;
+
     void Start()
     {
-        this.id = Random.Range(0,int.MaxValue);
 
-        this.agentNode = new NMNode(id);    
+        // what is the execution order?, did we set variables before this this point?..>
+        if (!InPLayersPool){
+            this.agentNode = new NMNode(this.id = Random.Range(0,int.MaxValue));
+        }
+        else{
+            this.agentNode = main_handler.GetComponent<Ui_Handler>().playerNode;
+        }
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         this.chain = main_handler.GetComponent<Ui_Handler>().chain;
         this.pool = main_handler.GetComponent<Ui_Handler>().pool;
         this.ui_pool = main_handler.GetComponent<Ui_Handler>().ui_pool;
-
 
 
         ulong[] mine_ret  = new ulong[2];
@@ -45,14 +54,13 @@ public class Mining_agent : MonoBehaviour
                 if (mine_ret[1]== 1){ 
                     this.blockFoundLast = true;
                     ui_pool.GetComponent<Ui_Pool>().fieldClear();
+                    Debug.Log("mined for "+ agentNode.address);
                 }
             }catch (System.Exception){
                 this.blockFoundLast = true;
                 ui_pool.GetComponent<Ui_Pool>().fieldClear();
                 //Debug.Log("Trying to mine old block");
-            }
-            
-        }
-        
+            }   
+        }       
     }
 }
