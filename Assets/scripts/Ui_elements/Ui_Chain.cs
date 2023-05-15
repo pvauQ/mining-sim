@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// elää GameObjetissa joka esittää lohkoketjua
 public class Ui_Chain : MonoBehaviour
 {
     public GameObject main_handler;

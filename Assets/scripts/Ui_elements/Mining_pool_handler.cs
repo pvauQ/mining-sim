@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// elää GameObjectissa jonka lapsiksi halutaan mainerit/upgraded tms. lisätä
 public class Mining_pool_handler : MonoBehaviour
 {
 

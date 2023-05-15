@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//transaction pool visualized
 public class Ui_Pool : MonoBehaviour
 {
 

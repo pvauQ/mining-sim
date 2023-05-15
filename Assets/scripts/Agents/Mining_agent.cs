@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// agentti, joita noi olla n+1 kun agentnode osoittaa pelaajaan toimii
+// mining poolin jäsenenä/eli siis upgradena tms -> katso buy_one_upgrade
 public class Mining_agent : MonoBehaviour
 {
 
     public GameObject main_handler;
-    // get all these at Start() from main_handler
+
     NMBlockChain chain;
     public NMNode agentNode; //agents wallet // if we have this as player node this could work as cpu/mining pool member??
     NMPool pool; 
