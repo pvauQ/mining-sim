@@ -1007,6 +1007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main_handler: {fileID: 788469623}
   trans_prefab: {fileID: 7740477334656315665, guid: 76fc46a88f6e3c54eb227172908f6892, type: 3}
+  tip_prefab: {fileID: 4123794358197515035, guid: f7aa72b656c2756429ea35ed3a2e7402, type: 3}
 --- !u!1 &1091834743
 GameObject:
   m_ObjectHideFlags: 0

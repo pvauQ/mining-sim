@@ -9,6 +9,8 @@ public class Ui_Transaction : MonoBehaviour
     public int id;
     public int fee;
     public GameObject main_handler;
+    public GameObject tooltip_prefab;
+    GameObject tip;
     Vector3 scale;
 
 
@@ -30,4 +32,22 @@ public class Ui_Transaction : MonoBehaviour
         }
             
     }
+
+    void OnMouseEnter(){
+        if (tooltip_prefab != null){
+            tip = Instantiate(tooltip_prefab, transform.position, Quaternion.identity,transform);
+            
+             Transaction trans = main_handler.GetComponent<Ui_Handler>().pool.getTransaction(this.id);
+
+            tip.GetComponent<TextMesh>().text = trans.ToString();
+         }
+    }
+
+    void OnMouseExit(){
+        if(tip != null){
+             Destroy(tip);
+             tip = null;
+        } 
+    }
+
 }

@@ -7,6 +7,7 @@ public class Ui_Pool : MonoBehaviour
 
     public GameObject main_handler;
     public GameObject trans_prefab;
+    public GameObject tip_prefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class Ui_Pool : MonoBehaviour
             Vector2 pos_offset = Random.insideUnitCircle * 2;
             Vector3 pos = new Vector3(transform.position.x + pos_offset.x, transform.position.y+pos_offset.y, transform.position.z);
             GameObject asd = Instantiate(trans_prefab ,pos, transform.rotation, transform);
+            asd.GetComponent<Ui_Transaction>().tooltip_prefab = this.tip_prefab;
             asd.GetComponent<Ui_Transaction>().fee = trans.fee;
             asd.GetComponent<Ui_Transaction>().id = trans.id;
 
