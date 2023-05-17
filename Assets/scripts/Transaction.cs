@@ -8,6 +8,7 @@ public class Transaction
 	public int fee;
 	int out_address;
 	int in_address;
+	public int amount;
 	public int id; // for game purposes not a real thing
 
 	public Transaction(int fee, int out_address, int in_address){
@@ -16,6 +17,14 @@ public class Transaction
 		this.fee = fee;
 		this.in_address = in_address;
 		this.out_address = out_address;
+	}
+		public Transaction(int fee, int amount, int out_address, int in_address){
+		System.Random rnd = new System.Random();
+		this.id = rnd.Next();// eheh
+		this.fee = fee;
+		this.in_address = in_address;
+		this.out_address = out_address;
+		this.amount = amount;
 	}
 
 	public override string ToString(){ // to be used for merkleroot

@@ -23,6 +23,7 @@ public class Mining_pool_handler : MonoBehaviour
             asd.GetComponent<Mining_agent>().main_handler = main_handler;
             asd.GetComponent<Mining_agent>().type = type;
             asd.GetComponent<Mining_agent>().desc = desc;
+            asd.GetComponent<Mining_agent>().frames_between_hashes = hashRate;
             asd.GetComponent<Mining_agent>().agentNode = main_handler.GetComponent<Ui_Handler>().playerNode;
     }
 

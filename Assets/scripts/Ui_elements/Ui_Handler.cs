@@ -25,8 +25,8 @@ public class Ui_Handler : MonoBehaviour
         Application.targetFrameRate = 60;
 
         this.chain = new NMBlockChain();
-        this.playerNode = new NMNode(1); // osoite 1
         this.pool = new NMPool();
+        this.playerNode = new NMNode(1, this.pool); // osoite 1
         // ^^ nämä pysyy samana koko pelin ajan.
         miner = new NMMiner(chain,playerNode,pool); //  we do miner here, so we have ref before first click.
         
