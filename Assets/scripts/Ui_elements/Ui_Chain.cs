@@ -22,9 +22,19 @@ public class Ui_Chain : MonoBehaviour
     {
         int cur_len = main_handler.GetComponent<Ui_Handler>().chain.blocks.Count;
         if (prev_len < cur_len){
-             Instantiate(Ui_block_prefab,new Vector3(transform.position.x + off_Set*cur_len, transform.position.y,transform.position.z), transform.rotation, transform);
+            RandomColorInstantiate(cur_len);
+            //  Instantiate(Ui_block_prefab,new Vector3(transform.position.x + off_Set*cur_len, transform.position.y,transform.position.z), transform.rotation, transform);
             prev_len = cur_len;
         }
-        
+    }
+
+    void RandomColorInstantiate(int cur_len) {
+        GameObject prefabInstance = Instantiate(Ui_block_prefab,new Vector3(transform.position.x + off_Set*cur_len, transform.position.y,transform.position.z), transform.rotation, transform);
+        Renderer prefabRenderer = prefabInstance.GetComponent<Renderer>();
+        if (prefabRenderer != null)
+        {
+            Color randomColor = new Color(Random.value, Random.value, Random.value);
+            prefabRenderer.material.color = randomColor;
+        }
     }
 }

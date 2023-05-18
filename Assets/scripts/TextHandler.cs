@@ -26,6 +26,6 @@ public class TextHandler : MonoBehaviour {
         difficultyText.text = "Difficulty: " +main_handler.GetComponent<Ui_Handler>().chain.difficulty;
         nonceText.text = "Nonce: " + main_handler.GetComponent<Ui_Handler>().miner.nonce;
         merkleText.text = "Merkle: " + main_handler.GetComponent<Ui_Handler>().miner.toBeBlock.hashMerkleRoot;
-        generatedHash.text = "HASH: +"  + main_handler.GetComponent<Ui_Handler>().prev_hash_miner;
+        generatedHash.text = "+"  + main_handler.GetComponent<Ui_Handler>().prev_hash_miner;
     }
 }
