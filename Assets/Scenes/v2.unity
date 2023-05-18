@@ -286,7 +286,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.16571732, g: 0.20399705, b: 0.26415092, a: 0}
+  m_BackGroundColor: {r: 0.012875253, g: 0.2924528, b: 0.26629356, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -332,7 +332,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331250142
 GameObject:
@@ -364,7 +364,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &331250145
 MonoBehaviour:
@@ -421,7 +421,7 @@ RectTransform:
   - {fileID: 1704892790}
   - {fileID: 824618885}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -498,7 +498,7 @@ Canvas:
   m_GameObject: {fileID: 415819505}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 307163765}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -751,7 +751,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &843197166
 MonoBehaviour:
@@ -1003,7 +1003,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428909617
 GameObject:
@@ -1485,11 +1485,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638761799682596510, guid: 08a7a73cbe4e04740af31eb2ec9b280a, type: 3}
       propertyPath: m_fontSize
-      value: 13
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638761799682596510, guid: 08a7a73cbe4e04740af31eb2ec9b280a, type: 3}
+      propertyPath: m_fontStyle
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4638761799682596510, guid: 08a7a73cbe4e04740af31eb2ec9b280a, type: 3}
       propertyPath: m_fontSizeBase
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9117213494825498164, guid: 08a7a73cbe4e04740af31eb2ec9b280a, type: 3}
       propertyPath: m_Pivot.x
