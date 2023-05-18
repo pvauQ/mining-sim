@@ -15,10 +15,9 @@ public class Mining_pool_handler : MonoBehaviour
 
             //TODO fiksummat lokaatiot tää on aivan persiistä.
             Vector2 pos_offset = Random.insideUnitCircle * 2;
-            Vector3 pos = new Vector3(transform.position.x + pos_offset.x, transform.position.y+pos_offset.y, transform.position.z);
-
+            if (pos_offset.y > 0){ pos_offset.y -= 3;}
             
-            GameObject asd = Instantiate(pool_miner_prefab ,pos, transform.rotation, transform);
+            GameObject asd = Instantiate(pool_miner_prefab ,pos_offset, transform.rotation, transform);
             asd. GetComponent<Mining_agent>().InPLayersPool = true;
             asd.GetComponent<Mining_agent>().main_handler = main_handler;
             asd.GetComponent<Mining_agent>().type = type;

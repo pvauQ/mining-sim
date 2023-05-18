@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Upgrade
 {
@@ -17,7 +18,7 @@ public class Upgrade
     }
 
     public override string  ToString(){
-        int hashrate = 60/frames_between_hashes;
-        return name + "\n"+ desc +" \n hashRate:" + hashrate + "hash/sec"+ "\n price: "+  price; 
+        float hashrate = ((float)Math.Round(60f/frames_between_hashes, 2));
+        return name + "\n"+ desc +" \n" + hashrate  + "hash/sec";
     }
 }
