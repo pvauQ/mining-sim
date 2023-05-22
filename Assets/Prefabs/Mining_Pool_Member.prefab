@@ -115,6 +115,7 @@ MonoBehaviour:
     funds: 0
     address: 0
   frames_between_hashes: 360
+  hashPrefab: {fileID: 3920986600604313796, guid: aba3726ec015ce04fae13ec0f1c92ca0, type: 3}
   InPLayersPool: 0
   type: 
   desc: 
