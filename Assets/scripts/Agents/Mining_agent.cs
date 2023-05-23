@@ -57,7 +57,7 @@ public class Mining_agent : MonoBehaviour
                 if (mine_ret[1]== 1){ 
                     this.blockFoundLast = true;
                     ui_pool.GetComponent<Ui_Pool>().fieldClear();
-                    Debug.Log("mined for "+ agentNode.address);
+                    // Debug.Log("mined for "+ agentNode.address);
                 }
             }catch (System.Exception){
                 this.blockFoundLast = true;

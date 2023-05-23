@@ -11,8 +11,6 @@ public class Miner : MonoBehaviour
     Block refBlock; // we use this to determine if new block was mined.
     public Pool pool;
 
-    public event System.Action onBlockMined;
-
     public Miner(Blockchain chain, Node minerEntity, Pool pool){ //  mines only one block! after that dump it.
         this.pool = pool;
         this.chain = chain;

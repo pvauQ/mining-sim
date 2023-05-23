@@ -11,8 +11,10 @@ public class TextHandler : MonoBehaviour {
     public Text nonceText;
     public Text merkleText;
     public Text generatedHash;
+    public Text meanBlockMiningSpeed;
     public Blockchain blockChain;
     public Block block;
+    public Difficulty difficulty;
     public float playerCurrency = 0F;
 
     void Start() {
@@ -27,5 +29,6 @@ public class TextHandler : MonoBehaviour {
         nonceText.text = "Nonce: " + main_handler.GetComponent<Ui_Handler>().miner.nonce;
         merkleText.text = "Merkle: " + main_handler.GetComponent<Ui_Handler>().miner.toBeBlock.hashMerkleRoot;
         generatedHash.text = "+"  + main_handler.GetComponent<Ui_Handler>().prev_hash_miner;
+        meanBlockMiningSpeed.text = difficulty.meanSpeed + " s/block";
     }
 }

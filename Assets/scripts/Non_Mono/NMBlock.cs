@@ -12,7 +12,7 @@ public class NMBlock
     //int blockSize; // no need?
     public ulong hashPrevBlock;
     public string hashMerkleRoot; // is long long enough?
-    public int timestamp;
+    public System.DateTime timestamp;
     public ulong difficulty;
     public int nonce;
     public ulong hashThisBlock;
@@ -23,7 +23,7 @@ public class NMBlock
     public NMMiner miner;
 
 
-    public NMBlock( ulong hashPrevBlock, string merkle, int timestamp,
+    public NMBlock( ulong hashPrevBlock, string merkle, System.DateTime timestamp,
                 ulong difficulty, int nonce, ulong hashThisBlock,List<Transaction> trans){
         this.hashPrevBlock = hashPrevBlock;
         this.hashMerkleRoot = merkle;
@@ -35,7 +35,7 @@ public class NMBlock
 
     }
 
-    public NMBlock(ulong difficulty) {
+    public NMBlock(ulong difficulty, string merkle, long timestamp) {
         this.difficulty = difficulty;
     }
 }
