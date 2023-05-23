@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3391938326086224627}
   - component: {fileID: 3359226317580273476}
   - component: {fileID: 613124201644614215}
+  - component: {fileID: 7606481327630664118}
   m_Layer: 0
   m_Name: BlockInChain
   m_TagString: Untagged
@@ -97,3 +98,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7606481327630664118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865237522258072204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd145ba27c2874899bfc168c7f335e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  block_id: 0
+  tooltip_prefab: {fileID: 4123794358197515035, guid: f7aa72b656c2756429ea35ed3a2e7402, type: 3}

@@ -17,7 +17,9 @@ public class Ui_Chain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(Ui_block_prefab, transform.position, transform.rotation, transform);
+        GameObject tmp;
+        tmp = Instantiate(Ui_block_prefab, transform.position, transform.rotation, transform);
+        tmp.GetComponent<Block_Data>().block_id= 0;
         this.prev_len  =main_handler.GetComponent<Ui_Handler>().chain.blocks.Count;
         targetPosition = transform.position;
     }
@@ -51,6 +53,7 @@ public class Ui_Chain : MonoBehaviour
 
     void RandomColorInstantiate(int cur_len) {
         GameObject prefabInstance = Instantiate(Ui_block_prefab,new Vector3(transform.position.x + off_Set*cur_len, transform.position.y,transform.position.z), transform.rotation, transform);
+        prefabInstance.GetComponent<Block_Data>().block_id= main_handler.GetComponent<Ui_Handler>().chain.blocks.Count-1;
         Renderer prefabRenderer = prefabInstance.GetComponent<Renderer>();
         if (prefabRenderer != null)
         {
