@@ -31,7 +31,7 @@ public class Mining_agent : MonoBehaviour
 
     void Start()
     {
-        rnd_off = Random.Range(-120,120);
+        rnd_off = Random.Range(-30,30);
 
         // what is the execution order?, did we set variables before this this point?..>
         if (!InPLayersPool){
