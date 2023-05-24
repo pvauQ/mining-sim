@@ -21,7 +21,7 @@ public class Buy_menu_handler : MonoBehaviour
         mainaajat.Add(new Upgrade("CS Student ", "CS student living in a dorm with free electricity ", 80, 800 ));
         mainaajat.Add(new Upgrade("Hacker monkey", "This monkey has access to AWS on his corporate account ", 30, 1200 ));
         mainaajat.Add(new Upgrade("Coal powered mining farm", "This farm produces coins at fast speed with clean burning coal" , 7, 1_600 ));
-        mainaajat.Add(new Upgrade("Norway", "You bribe all norvegians to use all of their electricity to mine coins" , 30, 12_000 ));       
+        mainaajat.Add(new Upgrade("Norway", "You bribe all norvegians to use all of their electricity to mine coins" , 2, 12_000 ));       
     
 
     float y_poss_offset =  0 ;

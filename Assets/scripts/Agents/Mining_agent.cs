@@ -31,7 +31,7 @@ public class Mining_agent : MonoBehaviour
 
     void Start()
     {
-        rnd_off = Random.Range(-30,30);
+        rnd_off = Random.Range(0,60);
 
         // what is the execution order?, did we set variables before this this point?..>
         if (!InPLayersPool){
@@ -77,12 +77,13 @@ public class Mining_agent : MonoBehaviour
     }
     private void SpawnText(ulong hash) {
 
-        float spawnOffsetRange = 0.1f;
+        float spawnOffsetRange = 3f;
+        float spawnOffsetRangeX = 30f;
 
         // Instantiate a new text object from the prefab with random offset
-        float randomOffsetX = Random.Range(-spawnOffsetRange, spawnOffsetRange);
+        float randomOffsetX = Random.Range(-spawnOffsetRangeX, spawnOffsetRangeX);
         float randomOffsetY = Random.Range(-spawnOffsetRange, spawnOffsetRange);
-        Vector2 spawnOffset = new Vector2(transform.position.x+ randomOffsetX, transform.position.y+randomOffsetY-200f);
+        Vector2 spawnOffset = new Vector2(transform.position.x+ randomOffsetX, transform.position.y+randomOffsetY-300f);
 
         GameObject newText = Instantiate(hashPrefab, GameObject.FindObjectOfType<Canvas>().transform);
         newText.GetComponent<Text>().text= hash.ToString();
