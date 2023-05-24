@@ -10,6 +10,7 @@ public class Mining_pool_handler : MonoBehaviour
     public GameObject pool_miner_prefab;
 
     public GameObject main_handler;
+    public GameObject hashPrefab;
 
     public void addNewPoolMember(string type, string desc, int hashRate){
 
@@ -24,6 +25,8 @@ public class Mining_pool_handler : MonoBehaviour
             asd.GetComponent<Mining_agent>().desc = desc;
             asd.GetComponent<Mining_agent>().frames_between_hashes = hashRate;
             asd.GetComponent<Mining_agent>().agentNode = main_handler.GetComponent<Ui_Handler>().playerNode;
+            asd.GetComponent<Mining_agent>().hashPrefab = this.hashPrefab;
+            
     }
 
 }

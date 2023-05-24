@@ -38,4 +38,7 @@ public class NMBlock
     public NMBlock(ulong difficulty, string merkle, long timestamp) {
         this.difficulty = difficulty;
     }
+    	public override string ToString(){ // to be used for merkleroot
+		return $"hash: {hashThisBlock}\n  merkleroot: {hashMerkleRoot} \n number of transactions: {transactions.Count}";
+	}
 }
