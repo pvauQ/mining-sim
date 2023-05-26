@@ -28,7 +28,7 @@ public class Buy_menu_handler : MonoBehaviour
 
     foreach(Upgrade miner in mainaajat){
         GameObject asd = Instantiate(buy_upgrade_prefab,new Vector3(transform.position.x, transform.position.y +  y_poss_offset,0), transform.rotation, transform);
-        y_poss_offset -= 150 ;
+        y_poss_offset -= 110 ;
         asd.transform.GetChild(0).GetComponent<TMP_Text>().text = miner.price.ToString()+ "Coins";
         asd.transform.GetChild(1).GetComponent<TMP_Text>().text = miner.ToString();
     
