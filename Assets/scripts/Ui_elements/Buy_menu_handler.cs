@@ -35,16 +35,8 @@ public class Buy_menu_handler : MonoBehaviour
  
         // uusi maineri
         asd.GetComponent<Button>().onClick.AddListener(() => onBuy(miner));
+   }   
 
-        //asd.GetComponent<Button>().onClick.AddListener(() => mining_pool.GetComponent<Mining_pool_handler>().addNewPoolMember(miner.name, miner.desc,miner.frames_between_hashes));
-
-        // maksu
-
-        //asd.GetComponent<Button>().onClick.AddListener(() =>main_handler.GetComponent<Ui_Handler>().playerNode.sendFunds(miner.price,100));
-    }   
-
-    //TODO ei mennä miinukselle bro
-    
     }
 
     void onBuy(Upgrade miner){
@@ -56,9 +48,4 @@ public class Buy_menu_handler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

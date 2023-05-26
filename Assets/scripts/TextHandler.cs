@@ -12,8 +12,7 @@ public class TextHandler : MonoBehaviour {
     public Text merkleText;
     public Text generatedHash;
     public Text meanBlockMiningSpeed;
-    public Blockchain blockChain;
-    public Block block;
+
     public Difficulty difficulty;
     public float playerCurrency = 0F;
 
